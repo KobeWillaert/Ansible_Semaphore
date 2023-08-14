@@ -12,4 +12,24 @@
     community.general.snap:
       name:
         - semaphore
+  - name: install mysql-server
+    apt:
+     name: mysql-server
+     state: latest
+
+  - name: Stop Semaphore
+    shell:
+      snap stop semaphore
+
+  - name: Add admin user
+    shell:
+      semaphore user add --admin \
+      --login kobe \
+      --name kobe \
+      --email=kobe.willaert@student.howest.be \
+      --password=Test123
+
+  - name: Start Semaphore
+    shell:
+      snap start semaphore
 
