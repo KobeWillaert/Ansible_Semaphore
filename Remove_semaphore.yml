@@ -1,0 +1,14 @@
+---
+
+  - hosts: all
+    become: true
+    tasks:
+
+    - name: Stop semaphore
+      shell:
+        snap stop semaphore
+
+    - name: uninstall semaphore
+      shell:
+        snap remove --purge semaphore
+
