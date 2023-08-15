@@ -12,3 +12,12 @@
       shell:
         snap remove --purge semaphore
 
+    - name: Stop Mysql
+      service:
+        name: mysql
+        state: stopped
+
+    - name: Remove Mysql
+      apt:
+        name: mysql-server
+        state: absent
